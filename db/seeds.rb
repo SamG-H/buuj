@@ -3,5 +3,18 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+users = User.create!([{ name: 'sam', password: 'sam'},
+                      { name: 'maitland', password: 'maitland'},
+                      { name: 'bean', password: 'bean' }])
+
+logs = Log.create!([{ kind: 'month', user: users.first},
+                    { kind: 'month', user: users.second},
+                    { kind: 'month', user: users.third},
+                    { kind: 'day', user: users.first},
+                    { kind: 'day', user: users.second},
+                    { kind: 'day', user: users.third}])
+logs.each do |l|
+  Bullet.create!([{ body: 'Create icon', kind: 'task', log: l},
+                 { body: 'Fix sign in page', kind: 'task', log: l},
+                 { body: 'Add google sign up', kind: 'task', log: l}])
+end
