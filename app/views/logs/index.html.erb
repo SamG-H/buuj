@@ -1,1 +1,8 @@
-<h1>Logs</h1>
+<h1>Month Logs</h1>
+<% @logs.each do |log| %>
+  <h2><%= log.created_at %></h2>
+  <ul>
+    <% log.bullets.each do |b| %>
+      <li>(<%= b.kind %>) <%= b.body %></li>
+    <% end %>
+<% end %>
