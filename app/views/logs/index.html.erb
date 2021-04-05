@@ -1,9 +1,11 @@
-<h1>Month Logs</h1>
+<h1>Logs</h1>
 <% @logs.each do |log| %>
-  <h2><%= log.created_at %></h2>
+  <h2><%= link_to log.kind, log %> <%= log.created_at %></h2>
   <ul>
     <% log.bullets.each do |b| %>
-      <li>(<%= b.kind %>) <%= b.body %></li>
+      <li><%= b.kind %> <%= b.body %></li>
     <% end %>
   </ul>
 <% end %>
+
+<%= link_to "Create a new log", new_log_path %>
