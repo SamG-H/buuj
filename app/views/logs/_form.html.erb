@@ -1,0 +1,6 @@
+<%= form_with model: @log, local: true do |f| %>
+  <%= f.label "Kind of log" %>
+  <%= f.select(:kind, ['day', 'week', 'month', 'year']) %>
+
+  <%= f.submit %>
+<% end %>
