@@ -1,0 +1,6 @@
+<h1><%= @log.kind %> <%= @log.created_at %></h1>
+<%= link_to "Add bullet", new_bullet_path %>
+<br />
+<%= link_to "Delete this log", log_path(@log), method: :delete %>
+<br />
+<%= link_to "Edit this log", edit_log_path(@log) %>
